@@ -18,7 +18,7 @@ Member.new(:access => 'front');
 
 Now when the member logs in they will be redirected to 
 
-www.myapp/visitors
+www.myapp.com/visitors
 
 If you want them to be redirected to www.myapp/members
 
