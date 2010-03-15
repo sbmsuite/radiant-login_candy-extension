@@ -18,10 +18,11 @@ class LoginCandyExtension < Radiant::Extension
     # tab 'Content' do
     #   add_item "Login Candy", "/admin/login_candy", :after => "Pages"
     # end
+    
+    User.send(:include, UserModelExtension)
     ApplicationController.send(:include, LoginSystemExtension)
-    User.send(:include, UserModelExtension)  
     Admin::WelcomeController.send(:include, WelcomeControllerExtension)
-
-		Radiant::Config['login.visitor_url'] ||= '/visitors'
+    
+    Radiant::Config['login.visitor_url'] ||= '/visitors'
   end
 end

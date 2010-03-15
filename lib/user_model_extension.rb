@@ -6,6 +6,10 @@ module UserModelExtension
   end
 
   def generate_api_key
-    self.api_key = self.sha1(Time.now + Radiant::Config['session_timeout'].to_i)
+    begin
+      self.api_key = self.sha1(Time.now + Radiant::Config['session_timeout'].to_i) 
+    rescue 
+      "login_candy not migrated"
+    end
   end  
 end
